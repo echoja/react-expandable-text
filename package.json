@@ -1,6 +1,6 @@
 {
-  "name": "react-library-template",
-  "homepage": "https://morewings.github.io/react-library-template/",
+  "name": "react-expandable-text",
+  "homepage": "https://echoja.github.io/react-expandable-text/",
   "private": false,
   "version": "0.1.0",
   "type": "module",
@@ -19,9 +19,6 @@
   },
   "keywords": [
     "react",
-    "template",
-    "react-testing-library",
-    "testing-library",
     "eslint",
     "npm",
     "rollup",
@@ -32,7 +29,7 @@
     "css-modules",
     "typescript"
   ],
-  "description": "Missing React, typescript NPM library creation template",
+  "description": "TODO: Add description",
   "scripts": {
     "dev": "vite",
     "clean:lib": "rm -rf dist",
