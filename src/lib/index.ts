@@ -1,4 +1,4 @@
-import './index.css';
+import "./index.css";
 
-export {Counter} from './CounterDemo';
-export {ExpandableText} from './ExpandableText';
+export {Counter} from "./CounterDemo";
+export {ExpandableText} from "./ExpandableText";

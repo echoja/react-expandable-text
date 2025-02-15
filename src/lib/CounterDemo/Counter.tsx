@@ -1,8 +1,8 @@
-import type {FC} from 'react';
-import {useEffect} from 'react';
-import {throttle} from 'lodash';
+import type {FC} from "react";
+import {useEffect} from "react";
+import {throttle} from "lodash";
 
-import useLogic from './useLogic';
+import useLogic from "./useLogic";
 
 export type Props = {
   /** Set initial value */
@@ -14,7 +14,7 @@ export const Counter: FC<Props> = ({initialValue = 0}) => {
 
   useEffect(() => {
     const runner = throttle(() => {
-      console.log('throttle');
+      console.log("throttle");
     }, 10);
     runner();
   }, []);

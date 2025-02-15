@@ -1,15 +1,15 @@
-import {render, fireEvent} from '@testing-library/react';
+import {render, fireEvent} from "@testing-library/react";
 
-import {Counter} from './Counter';
+import {Counter} from "./Counter";
 
-describe('lib > Counter', () => {
+describe("lib > Counter", () => {
   /**
    * Jest hook which runs before each test,
    * @see https://jestjs.io/docs/en/api#beforeeachfn-timeout
    */
   beforeEach(() => {});
 
-  it('renders without crashing', () => {
+  it("renders without crashing", () => {
     /**
      * `asFragment`:
      * @see https://testing-library.com/docs/react-testing-library/api#asfragment
@@ -25,10 +25,10 @@ describe('lib > Counter', () => {
     expect(asFragment()).toMatchSnapshot();
 
     /** More precise test for counter value */
-    expect(baseElement.querySelector('strong')!.textContent).toBe('6'); // 6 is value we expect, we need to convert Number to String, because HTMLElement textContent method returns string value
+    expect(baseElement.querySelector("strong")!.textContent).toBe("6"); // 6 is value we expect, we need to convert Number to String, because HTMLElement textContent method returns string value
   });
 
-  it('changes counter value on button click', () => {
+  it("changes counter value on button click", () => {
     const value = 1;
 
     /**
@@ -41,9 +41,9 @@ describe('lib > Counter', () => {
      * Search for the button and make testing library click on it
      * @see https://testing-library.com/docs/react-testing-library/cheatsheet#events
      */
-    fireEvent.click(getByRole('button'));
+    fireEvent.click(getByRole("button"));
 
     /** Check if counter was incremented  */
-    expect(baseElement.querySelector('strong')!.textContent).toBe(`${value + 1}`);
+    expect(baseElement.querySelector("strong")!.textContent).toBe(`${value + 1}`);
   });
 });

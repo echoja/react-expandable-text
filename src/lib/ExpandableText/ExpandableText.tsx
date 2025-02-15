@@ -1,26 +1,13 @@
-'use client';
+"use client";
 
-import {useEffect, useRef, useState} from 'react';
-import {twMerge} from 'tailwind-merge';
+import {useEffect, useRef, useState} from "react";
 
 export type ExpandableTextProps = {
   content: string;
-  lineClamp?: 1 | 2 | 3 | 4 | 5;
-  className?: string;
-  buttonClassName?: string;
+  lineClamp?: number;
 };
 
-export const ExpandableText: React.FC<ExpandableTextProps> = ({
-  content,
-  buttonClassName,
-  className,
-  lineClamp = 2,
-}: {
-  content: string;
-  lineClamp?: 1 | 2 | 3 | 4 | 5;
-  className?: string;
-  buttonClassName?: string;
-}) => {
+export const ExpandableText: React.FC<ExpandableTextProps> = ({content, lineClamp = 2}) => {
   const pRef = useRef<HTMLParagraphElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [lineHeight, setLineHeight] = useState<number | null>(null);
@@ -34,6 +21,7 @@ export const ExpandableText: React.FC<ExpandableTextProps> = ({
       }
       setLineHeight(parseFloat(getComputedStyle(pRef.current).lineHeight));
     });
+
     if (pRef.current) {
       observer.observe(pRef.current);
     }
@@ -50,11 +38,11 @@ export const ExpandableText: React.FC<ExpandableTextProps> = ({
 
   return (
     <>
-      <div className={twMerge(className, 'h-0 overflow-hidden')}>
+      <div className="h-0 overflow-hidden">
         <p ref={originalRef}>{content}</p>
       </div>
 
-      <div className={twMerge('relative w-full', className)}>
+      <div className="relative w-full">
         <p
           ref={pRef}
           className="relative overflow-hidden"
@@ -62,10 +50,7 @@ export const ExpandableText: React.FC<ExpandableTextProps> = ({
           {content}
           {!isOverflown ? null : !expanding ? (
             <button
-              className={twMerge(
-                'review_more z-1 absolute bottom-0 right-0 block bg-gradient-to-r from-transparent via-white via-40% to-white pl-8 text-primary hover:underline',
-                buttonClassName
-              )}
+              className="z-1 text-primary absolute bottom-0 right-0 block bg-gradient-to-r from-transparent via-white via-40% to-white pl-8 hover:underline"
               onClick={e => {
                 e.stopPropagation();
                 setExpanding(prev => !prev);
@@ -75,7 +60,7 @@ export const ExpandableText: React.FC<ExpandableTextProps> = ({
             </button>
           ) : (
             <button
-              className={twMerge('ml-0.5 text-primary hover:underline', buttonClassName)}
+              className="text-primary ml-0.5 hover:underline"
               onClick={e => {
                 e.stopPropagation();
                 setExpanding(prev => !prev);
