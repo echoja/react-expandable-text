@@ -102,7 +102,7 @@ export default [
           trailingComma: "es5",
           bracketSpacing: false,
           jsxBracketSameLine: true,
-          arrowParens: "avoid",
+          arrowParens: "always",
         },
       ],
       /* Required by vite */
