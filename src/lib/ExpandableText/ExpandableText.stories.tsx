@@ -8,6 +8,13 @@ const meta: Meta<typeof ExpandableText> = {
   parameters: {
     layout: "centered",
   },
+  decorators: [
+    (Story) => (
+      <div style={{maxWidth: 400, width: "100%"}}>
+        <Story />
+      </div>
+    ),
+  ],
   args: {
     lineClamp: 2,
   },
