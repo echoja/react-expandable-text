@@ -1,53 +1,112 @@
-[![CI](https://github.com/morewings/react-library-template/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/morewings/react-library-template/actions/workflows/merge-jobs.yml)
-[![Storybook deploy](https://github.com/morewings/react-library-template/actions/workflows/pages.yml/badge.svg)](https://github.com/morewings/react-library-template/actions/workflows/pages.yml)
-[![Use this template](https://img.shields.io/badge/use%20this-template-blue?logo=githu)](https://github.com/morewings/react-library-template/generate)
+[![CI](https://github.com/echoja/react-expandable-text/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/echoja/react-expandable-text/actions/workflows/merge-jobs.yml)
+[![Storybook deploy](https://github.com/echoja/react-expandable-text/actions/workflows/pages.yml/badge.svg)](https://github.com/echoja/react-expandable-text/actions/workflows/pages.yml)
 
-# React Library Template
+# React Expandable Text
 
+A React component for displaying text with expandable/collapsible functionality. Perfect for showing long text content with a "Read more" / "Show less" toggle.
 
-[![NPM library Create React App template logo](./design/logo.jpg)](#)
-
-With React Library Template Repository, you can focus on developing your React components and libraries without worrying about the configuration and setup.
-
-Read [full documentation](https://dev.to/morewings/fastest-way-to-create-a-react-library-3mi7).
-
-Visit [Demo Storybook](https://morewings.github.io/react-library-template/).
+Visit [Demo Storybook](https://echoja.github.io/react-expandable-text/).
 
 ## Features
 
-- Supports **Typescript** and **Javascript**.
-- Bundles `commonjs` and `es` module formats.
-- [pnpm](https://pnpm.io/) for blazing fast package management.
-- [Vite](https://vitejs.dev/) for speedy bundling
-- [Husky](https://github.com/typicode/husky) for git hooks.
-- [Eslint](https://eslint.org/) and [stylelint](https://stylelint.io/).
-- [Rollup](https://rollupjs.org/guide/en/) for bundling.
-- [Jest](https://jestjs.io/) and [react-testing-library](https://testing-library.com/docs/react-testing-library/intro) for testing.
-- [Storybook](https://storybook.js.org/) for documentation and demo.
-- Optional [Tailwind CSS](https://tailwindcss.com/) support.
+- 📝 Display text with automatic line clamping
+- 👆 Toggle between collapsed and expanded states
+- 🎨 Customizable line clamp limit
+- ⚡ Automatic overflow detection
+- 🎯 Smooth gradient effect on collapsed text
+- 📦 TypeScript support
+- 🪶 Lightweight with minimal dependencies
 
-## Quickstart
+## Installation
+
+```bash
+npm install react-expandable-text
+```
+
+or
+
+```bash
+yarn add react-expandable-text
+```
+
+or
+
+```bash
+pnpm add react-expandable-text
+```
+
+## Usage
+
+```tsx
+import { ExpandableText } from 'react-expandable-text';
+
+function App() {
+  return (
+    <ExpandableText 
+      content="Your long text content here..." 
+      lineClamp={2}
+    />
+  );
+}
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `content` | `string` | required | The text content to display |
+| `lineClamp` | `number` | `2` | Maximum number of lines to show when collapsed |
+
+### Example
+
+```tsx
+import { ExpandableText } from 'react-expandable-text';
+
+function MyComponent() {
+  const longText = `
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+  `;
+
+  return (
+    <div>
+      <h2>Article Preview</h2>
+      <ExpandableText content={longText} lineClamp={3} />
+    </div>
+  );
+}
+```
+
+## Development
 
 ### Prerequisites
 
 1. Install **Node** >= 20.x.
 2. Install **pnpm**. E.g. `corepack prepare pnpm@latest --activate`.
 
+### Setup
 
-### Installation
-
-Manually clone repo or use `degit`.
-
-```shell script
-# With CSS Modules config
-npx degit github:morewings/react-library-template my-library
-# With Tailwind CSS config
-npx degit github:morewings/react-library-template#tailwind my-library
-cd ./my-library
-pnpm i
+```bash
+git clone https://github.com/echoja/react-expandable-text.git
+cd react-expandable-text
+pnpm install
 ```
 
+### Available Scripts
 
-## Enable Tailwind CSS
+- `pnpm dev` - Start development server
+- `pnpm build` - Build the library
+- `pnpm test` - Run tests
+- `pnpm lint:code` - Lint code
+- `pnpm lint:style` - Lint styles
+- `pnpm start:docs` - Start Storybook
+- `pnpm build:docs` - Build Storybook
 
-You can find all changes at this [PR](https://github.com/morewings/react-library-template/pull/161) and [tailwind](https://github.com/morewings/react-library-template/tree/tailwind) branch.
+## License
+
+See [LICENSE](./LICENSE) file for details.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
