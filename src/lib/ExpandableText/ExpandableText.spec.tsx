@@ -2,10 +2,13 @@ import {fireEvent, render, screen, waitFor} from "@testing-library/react";
 
 import {ExpandableText} from "./ExpandableText";
 
-const originalResizeObserver = globalThis.ResizeObserver;
-const scrollHeightDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, "scrollHeight");
+let originalResizeObserver: typeof globalThis.ResizeObserver | undefined;
+let scrollHeightDescriptor: PropertyDescriptor | undefined;
 
 beforeEach(() => {
+  originalResizeObserver = globalThis.ResizeObserver;
+  scrollHeightDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, "scrollHeight");
+
   jest.spyOn(window, "getComputedStyle").mockImplementation(
     () =>
       ({
@@ -25,9 +28,13 @@ beforeEach(() => {
       this.callback([], this as unknown as ResizeObserver);
     }
 
-    disconnect() {}
+    disconnect() {
+      return undefined;
+    }
 
-    unobserve() {}
+    unobserve() {
+      return undefined;
+    }
   }
 
   globalThis.ResizeObserver = ResizeObserverMock as unknown as typeof ResizeObserver;
