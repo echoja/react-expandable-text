@@ -7,7 +7,7 @@
 
 [스토리북 데모](https://echoja.github.io/react-expandable-text/)에서 동작을 확인할 수 있습니다.
 
-> ⚠️ 이 프로젝트는 아직 npm 레지스트리에 게시되어 있지 않습니다. 아래 내용은 **참고용**이며, 사용하려면 저장소를 클론해 직접 빌드하거나 소스 코드를 참고해 주세요.
+> ⚠️ 이 프로젝트는 아직 npm 레지스트리에 게시되어 있지 않습니다. 아래의 내용은 **참고용**이며, 사용하려면 저장소를 클론해 직접 빌드하거나 소스 코드를 참고해 주세요.
 
 ## 특징
 
@@ -22,19 +22,19 @@
 ## 사용 방법 (참고용)
 
 ```tsx
-import { ExpandableText } from 'react-expandable-text';
+import { ExpandableText } from './src/lib';
 
 function App() {
   return (
     <ExpandableText
-      content="Your long text content here..."
+      content="여기에 긴 텍스트가 들어갑니다."
       lineClamp={2}
     />
   );
 }
 ```
 
-> 위 예제의 패키지 이름은 이해를 돕기 위한 것입니다. npm에서 바로 설치할 수 없으니, 로컬로 빌드한 번들 또는 컴포넌트를 직접 가져와 활용하세요.
+> 위 예제는 로컬 프로젝트에 컴포넌트를 포함해 사용하는 참고용 코드입니다. npm에 게시되어 있지 않으니, 저장소를 클론해 빌드하거나 컴포넌트를 복사해 프로젝트 구조에 맞게 import 경로를 조정하세요.
 
 ### Props
 
@@ -46,13 +46,13 @@ function App() {
 ### 예시
 
 ```tsx
-import { ExpandableText } from 'react-expandable-text';
+import { ExpandableText } from './src/lib';
 
 function MyComponent() {
   const longText = `
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+    이 컴포넌트는 긴 글을 접었다 펼칠 때 유용합니다.
+    접힌 상태에서는 지정한 줄 수까지만 보여주고,
+    더 보기를 누르면 전체 내용을 확인할 수 있습니다.
   `;
 
   return (
