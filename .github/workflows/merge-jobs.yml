@@ -6,11 +6,12 @@ name: Post-merge tasks
 on:
   push:
     branches: [ master ]
+  workflow_dispatch: {}
 
 jobs:
   build-publish:
 
-    runs-on: ubuntu-latest
+    runs-on: echoja-react-expandable-text-linux
 
     steps:
       - name: Cancel Workflow Action
@@ -19,14 +20,14 @@ jobs:
           access_token: ${{ github.token }}
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Read .nvmrc
         run: echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
         id: nvm
 
       - name: Use Node.js ${{ env.NVMRC }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NVMRC }}
 
@@ -51,6 +52,8 @@ jobs:
       - name: Run merge tasks
         run: |
           pnpm install
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    timeout-minutes: 20
 
 #      - name: Publish NPM package
 #        uses: JS-DevTools/npm-publish@v3
